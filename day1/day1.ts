@@ -3,7 +3,7 @@ import input from "./input"
 function firstDigit(line: string): string {
   const match = line.match(/\d/)
   if (!match) {
-    throw new Error("firstDigit: no digit found")
+    throw new Error("no digit found")
   }
   return match[0]
 }
