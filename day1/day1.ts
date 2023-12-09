@@ -1,11 +1,7 @@
 import input from "./input"
 
-function firstDigit(line: string): string {
-  const match = line.match(/\d/)
-  if (!match) {
-    throw new Error("no digit found")
-  }
-  return match[0]
+function plus(a: number, b: number): number {
+  return a + b
 }
 
 function reverseString(s: string): string {
@@ -14,20 +10,33 @@ function reverseString(s: string): string {
   return arr.join("")
 }
 
+function firstDigit(line: string): string {
+  const match = line.match(/\d/)
+  if (!match) {
+    throw new Error("no digit found")
+  }
+  return match[0]
+}
+
 function lastDigit(line: string): string {
   return firstDigit(reverseString(line))
 }
 
-function lineValue(line: string): number {
+function lineValuePartA(line: string): number {
   return Number(firstDigit(line)) * 10 + Number(lastDigit(line))
 }
 
-function plus(a: number, b: number): number {
-  return a + b
+function lineValuePartB(line: string): number {
+  return Number(firstDigit(line)) * 10 + Number(lastDigit(line))
 }
 
 function partA(): number {
-  return input.map(lineValue).reduce(plus)
+  return input.map(lineValuePartA).reduce(plus)
+}
+
+function partB(): number {
+  return input.map(lineValuePartB).reduce(plus)
 }
 
 console.log(partA())
+console.log(partB())
