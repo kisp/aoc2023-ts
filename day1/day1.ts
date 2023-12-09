@@ -22,21 +22,12 @@ function lastDigit(line: string): string {
   return firstDigit(reverseString(line))
 }
 
-function lineValuePartA(line: string): number {
-  return Number(firstDigit(line)) * 10 + Number(lastDigit(line))
-}
-
-function lineValuePartB(line: string): number {
+function lineValue(line: string): number {
   return Number(firstDigit(line)) * 10 + Number(lastDigit(line))
 }
 
 function partA(): number {
-  return input.map(lineValuePartA).reduce(plus)
-}
-
-function partB(): number {
-  return input.map(lineValuePartB).reduce(plus)
+  return input.map(lineValue).reduce(plus)
 }
 
 console.log(partA())
-console.log(partB())
